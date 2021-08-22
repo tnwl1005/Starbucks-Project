@@ -1,0 +1,74 @@
+
+**Starbucks Coffee Website**
+
+- 홈페이지 타이틀의 아이콘 삽입 
+이미지 파일 이름은 'favicon.ico'로 설정하고 저장하면 자동 출력됨.
+또는, png파일로 변환 후, <link> 태그로 삽입함.
+ex) <link rel="icon" href="./favicon.png">
+
+- reset CSS
+브라우저에서 제공하는 기본적인 스타일이 초기화됨.
+
+-오픈그래프 (간략한 정보를 나타내는것이기떄문에, title 밑에 삽입)
+style,link,tite 정보 이외 대부분 <meta>태그에 정보를 표시함.
+
+-SEO(검색 엔진 최적화 Serch Engine Optimization) -
+ 구글, 네이버 등에 자신의 웹사이트/페이지를 노출할 수 있도록 정보를 최적화하는 작업.
+
+
+-Matrial Icon_아이콘 
+https://fonts.google.com/icons
+
+//Header//
+<Submenu>
+- 브랜드 이미지 클릭 시, 메인 페이지로 이동하는 방법 : <a href="/"> 도메인링크주소 생략됨 
+-> <a href="/"> 절대경로 
+
+- Header > inner(로고,메뉴내용칸) 부분의 가운데 정렬: margin: 0 auto; (세로0,양옆 자동) 
+ㄴ>margin: auto 브라우저가 margin을 자동 계산
+
+-이미지 (inline 요소 (가로,세로 넓이 지정X)) : img {display:block} 블록요소로 변경/크기변경가능
+
+-*가운데 배치(수직,수평) : 수직- 배치할 요소의 높이 /top 0 bottom 0 /margin auto / position: absolute
+-> 위 4가지 조건이 필요 *요소의 부모 position:relative 지정
+
+- ::before : 가상요소 (내부의 앞쪽에 내용을 추가,inline요소) 
+content: "";
+display: block;
+
+<Search 버튼>
+ 
+
+ - setAttribute : html 요소에 속성을 지정하는 메소드 
+ ->searchInputEl.setAttribute('placeholder','통합검색'); 속성이름, 속성값
+
+<Main Menu>
+구조 : ul.main-menu > li.item(메인 li 컨테이너) > .item__name item__contents(드롭다운 메뉴의 컨테이너)
+> contents__menu(메뉴 컨테이너) > .inner(소메뉴 컨테이너) >h4(소제목) ul li(소메뉴)  contents__texture
+.contents__texture > .inner >h4 p
+
+전체 메인 메뉴 박스 (ul) >
+하위 리스트 박스 (li) > item name(메뉴이름) / item contents(드롬다운 전체박스) > contents__menu(메뉴 컨테이너) 
+>ul .inner(소메뉴 컨테이너) > li(소1메뉴) > ul li(소2메뉴) 
+.contents__texture > .inner >h4 p
+
+- .main-menu : 메인 메뉴 박스 position, bottom, 수평 정렬 등 위치 지정 
+- .item__name : 전체 .item__name 태그에 padding, font 크기 등 지정 (모든 메뉴 이름에 동일하게 지정됨)
+- *li.item: hover 시, .item__name , item__contents 나타나는 효과 (item__name 색상변경 ,item__contents 가 나타남)  ) 
+
+- .item__contents(하위메뉴컨테이너)의 위치 지정 : position: fixed; width: 100%; left:0; ->화면 뷰포트에 맞게 지정됨
+- ul.inner(하위메뉴 전체){
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+- ul.inner li : list에 width 값을 지정하여, 공백 만들기 
+
+-.contents__texture {
+    padding: 25px 0;
+    font-size: 12px;}
+
+
+**BEM :HTML 클래스 속성의 작명법 
+요소__일부분 : underscore 기호로 요소의 일부분을 표시 
+요소--상태 : hyphen 기호로 요소의 상태를 표시
